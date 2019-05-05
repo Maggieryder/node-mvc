@@ -1,0 +1,20 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/user-list.css">
+</head>
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <h1>USER: <%= user.username %></h1>
+        <hr />
+        <div class="user-details">
+            <h3><%= user.useremail %></h3>
+            <p><%= user.password %></p>
+            <div class="user-actions grid">
+                <a class="btn" href="/user-list">Back to User List</a>
+                <%- include('../includes/chat-btn.ejs') %>
+            </div>
+        </div>
+    </main>
+<%- include('../includes/end.ejs') %>
+
+<!-- <%- include('../includes/chat-btn.ejs', {user: user})  %> -->

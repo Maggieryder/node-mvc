@@ -1,0 +1,25 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <form class="users-form" action="/admin/add-user" method="POST">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" />
+            </div>
+            <div class="form-control">
+                <label for="useremail">Email Address</label>
+                <input type="text" name="useremail" id="useremail" placeholder="Email Address" />
+            </div>
+
+            <div class="form-control">
+                <label for="password">Email</label>
+                <input type="text" name="password" id="password" placeholder="Password" />
+            </div>
+            
+            <button class="btn" type="submit">Add User</button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

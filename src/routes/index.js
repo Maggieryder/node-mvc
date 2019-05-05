@@ -2,16 +2,19 @@ const express = require('express');
 
 const router = express.Router();
 
+// const adminController = require('../controllers/admin');
 const userController = require('../controllers/users');
-const errorController = require('../controllers/errors');
+// const errorController = require('../controllers/errors');
 
-router.get('/users', userController.getUsers);
+router.get('/user-list', userController.getUsers);
 
-router.post('/add-user', userController.addUser);
+router.get('/users/user/:userId', userController.getUser);
 
-router.get('/add-user', userController.getAddUserPage);
+router.get('/', userController.getIndex);
 
-router.use('/', errorController.get404);
+// router.get('/add-user', adminController.getAddUserPage);
+
+// router.use('/', errorController.get404);
 
 module.exports = router;
 

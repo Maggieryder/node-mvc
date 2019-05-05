@@ -3,7 +3,7 @@ const path = require('path');
 
 const usersFile = path.join(path.dirname(process.mainModule.filename), '..', 'data', 'users.json');
 
-const getUsersFromFile = (cb) => { 
+const getUsersFromFile = cb => { 
     fs.readFile(usersFile, (err, fileContent) => {
         if (err) {
             return cb([]);
@@ -13,11 +13,15 @@ const getUsersFromFile = (cb) => {
 }
 
 module.exports = class User {
-    constructor(u) {
-        this.username = u;
+    constructor(username, useremail, password) {
+        this.username = username;
+        this.useremail = useremail;
+        this.password = password;
     }
 
     save() {
+        this.id = Math.random().toString();
+        // console.log('[MODEL] save', this);
         getUsersFromFile(users => {
             users.push(this);
             fs.writeFile(usersFile, JSON.stringify(users), err => {
@@ -28,5 +32,12 @@ module.exports = class User {
 
     static fetchAll(cb) {
         getUsersFromFile(cb);
+    }
+
+    static getUserById (id, cb) {
+        getUsersFromFile(users => {
+            const user = users.find(u => u.id === id);
+            cb(user);
+        })
     }
 }

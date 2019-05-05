@@ -12,3 +12,14 @@
     padding: 10px;
     margin-bottom: 5px;
 }
+
+.user-details {
+    display: block;
+    width: 600px;
+    margin: 20px auto;
+    background: rgba(0,0,0,.2);
+}
+
+.user-actions {
+    
+}
